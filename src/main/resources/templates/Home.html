@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org">
+<body>
+	<div th:if="${personObject != null}" th:text="${personObject.name}"></div>
+	<form th:action="@{/}" th:object="${comment}" method="post">
+		<input type="hidden" th:if="${personObject != null}" th:value="${personObject.id}" th:field="*{person}" />
+		<textarea id="comment" placeholder="Comment..." th:field="*{body}"></textarea>
+		<button id="comment_submit" type="submit">Comment</button>
+	</form>
+	<div th:text="${comment.body}"></div>
+</body>
+</html>
